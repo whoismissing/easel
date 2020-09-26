@@ -6,10 +6,10 @@ intro to radare2 ESIL guide
 
 # Catalog
 
-* [What is ESIL? At a glance](#what-is-esil?)
-* [Reading ESIL](#what-does-esil-look-like?)
-* [Using ESIL](#how-to-use-esil?)
-* [What is ESIL used for?](#what-is-esil-used-for?)
+* [What is ESIL? At a glance](#what-is-esil)
+* [How do we read ESIL?](#what-does-esil-look-like)
+* [How do we use ESIL?](#how-to-use-esil)
+* [What is ESIL used for?](#what-is-esil-used-for)
 * [How does ESIL compare to other ILs?](#comparison-to-other-ILs)
 * [Errata](#errata)
 * [References](#references)
@@ -65,23 +65,23 @@ Only view ESIL expressions instead of assembly
 
 What commands can we use with ESIL?
 
-* 'aei': Initialize the ESIL virtual machine
+* `aei`: Initialize the ESIL virtual machine
 
-* 'aeim': Initialize the ESIL virtual machine memory (stack)
+* `aeim`: Initialize the ESIL virtual machine memory (stack)
 
-* 'aeip': Set the initial ESIL virtual machine instruction pointer
+* `aeip`: Set the initial ESIL virtual machine instruction pointer
 
-* 'aer': Set up initial register values
+* `aer`: Set up initial register values
 
-* 'ae': evaluate an ESIL expression
+* `ae`: evaluate an ESIL expression for example: `ae 1,1,+`
 
-`ae 1,1,+`
+* `aes`: step an ESIL expression
 
-* 'aes': step an ESIL expression
+* `aesu 0x1020`: step until an address is reached
 
-* 'aets+': create a new record and replay mode session for reverse debugging
+* `aets+`: create a new record and replay mode session for reverse debugging
 
-* 'aesb': step backwards in the reverse debugging session
+* `aesb`: step backwards in the reverse debugging session
 
 ESIL memory commands:
 
