@@ -113,6 +113,7 @@ ESIL is also being experimented with for symbolic execution.
 TODO: continue this section
 
 Ghidra's Pcode is more verbose
+* [Converting ESIL to Pcode](https://radareorg.github.io/blog/posts/sleigh_disassembler_backend/)
 
 Angr uses VEX IR
 
@@ -123,6 +124,7 @@ Angr uses VEX IR
 * [ESIL syntax](https://r2wiki.readthedocs.io/en/latest/home/misc/usage-examples/)
 * [ESIL commands](https://radare.gitbooks.io/radare2book/content/disassembling/esil.html)
 * [Decryption example](https://blog.superponible.com/2017/04/15/emulating-assembly-in-radare2/)
+* [Using r2](http://conference.hitb.org/files/hitbsecconf2019ams/materials/D1T3%20-%20Reversing%20with%20Radare2%20-%20Arnau%20Gamez%20Montolio.pdf)
 
 ## Cool projects
 * [ESILSolve Symbolic Executor](https://github.com/aemmitt-ns/esilsolve) - z3 and ESIL for symbolic execution

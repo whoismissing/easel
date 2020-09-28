@@ -1,0 +1,47 @@
+Once you've started r2, set up the configuration variables necessary for hooking.
+
+The quotes are necessary and this must be typed in the r2 interpreter.
+
+`"e cmd.esil.step=#!pipe python3 step_external_calls.py"`
+
+For some reason, I couldn't get this configuration variable working via r2pipe:
+
+```
+import r2pipe
+
+r = r2pipe.open()
+r.cmd("\"e cmd.esil.step=#!pipe python3 step_external_calls.py\"")
+```
+
+Or working with the configuration command in an r2 script or ~/.radare2rc with the syntax:
+`e cmd.esil.step = "#!pipe python3 /path/to/script/step_external_calls.py"`
+
+Notably, this has been tested on WSL `4.4.0-18362-Microsoft #1049-Microsoft` and r2 version from git:
+```
+radare2 4.6.0-git 24947 @ linux-x86-64 git.4.4.0-627-g2128795d9
+commit: 2128795d9427a2863b5066f339bf866cd32e3654 build: 2020-09-02__19:55:14
+```
+
+### Errata
+
+Problem:
+`r_config_set: variable 'cmd.esil.step' not found`
+
+Version of r2 is too old:
+```
+radare2 2.3.0 0 @ linux-x86-64 git.2.3.0
+commit: HEAD build: 2018-02-23__17:22:33
+```
+
+Update via:
+```
+$ git clone https://github.com/radare/radare2.git
+$ cd radare2
+$ ./sys/install.sh
+```
+
+To skip external calls in ESIL emulation, try:
+* [Reference](https://github.com/radareorg/radare2/issues/14843)
+```
+aep aepc=[esp] @@ reloc*
+```
