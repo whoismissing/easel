@@ -35,6 +35,7 @@ def ptrace_hook(pipe, pc):
     print("calling ptrace_hook")
     return_value = 1
     pipe.cmd("dr rax=%d" % return_value)
+    pipe.cmd("aepc=[esp]")
     sys.exit(return_value)
 
 def jns_hook(pipe, pc):
@@ -57,14 +58,21 @@ def jg_hook(pipe, pc):
     print(f"Taking branch to {jmp_addr}")
     pipe.cmd("aer rip = %s" % jmp_addr)
 
+def xor_hook(pipe, pc):
+    print("hooked start of xor")
+    original_instruction = "rbp,8,rsp,-,=[8],8,rsp,-="
+    pipe.cmd("aer rdi=rbp-32")
+    pipe.cmd(f"ae {original_instruction}")
+
 class StepHandler:
 
     def __init__(self):
         self.pipe = r2pipe.open()
         self.hooks = {
-            0x004006ff: ptrace_hook,
+            0x00400570: ptrace_hook,
             0x00400707: jns_hook,
             0x00400723: jg_hook,
+            0x00400677: xor_hook,
         }
 
     def handle_hook(self, pc):

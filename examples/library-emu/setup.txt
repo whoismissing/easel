@@ -1,3 +1,10 @@
+1. We can create aliases to r2pipe scripts
+2. We can create macros to run the aliases
+3. We can run macros on set pins
+ = We can run r2pipe scripts upon hitting a pin
+
+## cmd.esil.step stuff that doesn't work
+
 Once you've started r2, set up the configuration variables necessary for hooking.
 
 The quotes are necessary and this must be typed in the r2 interpreter.
