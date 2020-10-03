@@ -110,12 +110,18 @@ ESIL is also being experimented with for symbolic execution.
 
 ## Comparison to other ILs
 
-TODO: continue this section
+| Name | Infinite Memory | Infinite Registers | Floating Point Support | Architectures Supported | Additional Notes |
+|------|-----------------|--------------------|------------------------|-------------------------|------------------|
+|ESIL|yes|yes|no| |Designed for evaluation and emulation. Ability to implement custom operations. Register aliases.|
+|REIL|yes|yes|no|x86, ARM, PowerPC|BinNavi and BinDiff built on REIL. Written in Java.|
+|BIL| | |no|x86, ARM|IL for Binary Analysis Platform (BAP). Integration with IDA Pro, qira|
+|Vex IL|yes|yes| | |Supports types. Used in valgrind and angr.|
+|Pcode| | |yes| |Verbose. Each instruction is a sequence of p-code operations over varnodes.|
 
-Ghidra's Pcode is more verbose
+- [Pcode](https://ghidra.re/courses/languages/html/pcoderef.html)
 * [Converting ESIL to Pcode](https://radareorg.github.io/blog/posts/sleigh_disassembler_backend/)
 
-Angr uses VEX IR
+- [Vex](https://docs.angr.io/advanced-topics/ir)
 
 ## Errata
 * [ESIL execution cost](https://github.com/radareorg/radare2/pull/17585)
@@ -125,6 +131,7 @@ Angr uses VEX IR
 * [ESIL commands](https://radare.gitbooks.io/radare2book/content/disassembling/esil.html)
 * [Decryption example](https://blog.superponible.com/2017/04/15/emulating-assembly-in-radare2/)
 * [Using r2](http://conference.hitb.org/files/hitbsecconf2019ams/materials/D1T3%20-%20Reversing%20with%20Radare2%20-%20Arnau%20Gamez%20Montolio.pdf)
+* [Comparing ESIL to other ILs](https://www.slideshare.net/AntonKochkov/slidesen)
 
 ## Cool projects
 * [ESILSolve Symbolic Executor](https://github.com/aemmitt-ns/esilsolve) - z3 and ESIL for symbolic execution
