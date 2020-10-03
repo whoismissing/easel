@@ -1,1 +1,12 @@
-Reference: https://github.com/radareorg/radare2-r2pipe/blob/master/python/examples/syscall/int.py
+Reference: 
+* https://github.com/radareorg/radare2-r2pipe/blob/master/python/examples/syscall/int.py
+
+[r_egg reference](https://radare.gitbooks.io/radare2book/content/tools/ragg2/lang.html)
+
+Strategy:
+1. Use the analysis helpers to add ESIL expressions to 64-bit syscall instructions and make them interrupt with a custom code
+2. Register a core plugin introducing a new command to handle syscalls
+3. Register the new command as a macro to bypass cmd arg radare2 weirdness
+4. Register the macro to execute when an ESIL interrupt expression is hit
+
+^ Couldn't get r2lang installed
